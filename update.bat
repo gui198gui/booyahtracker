@@ -1,17 +1,17 @@
 @echo off
-set "ROOT=%~dp0"
-echo 🚀 A iniciar o motor de busca da Bungie...
-
-:: Entra na pasta raid usando o caminho absoluto do script
-cd /d "%ROOT%raid"
+echo 🚀 1. A atualizar dados da Bungie...
+cd /d "C:\projetosgit\raid"
 node tracker_completo.js
 
 echo.
-echo 📦 A copiar os novos dados para o dashboard...
-:: Copia do raid para o src/app do site
-copy /Y "ranking.json" "%ROOT%booyah-tracker\src\app\ranking.json"
+echo 📦 2. A copiar dados...
+copy /Y "C:\projetosgit\raid\ranking.json" "C:\projetosgit\booyah-tracker\app\ranking.json"
 
 echo.
-echo ✅ Concluido! Dados atualizados no PC.
-echo 💡 Agora faz Commit e Push no GitHub Desktop para atualizar o site online.
+if exist "C:\projetosgit\booyah-tracker\app" (
+    echo ✅ SUCESSO: O ficheiro ja esta na pasta do site!
+) else (
+    echo ❌ ERRO: O ficheiro NAO foi copiado. Verifica o caminho.
+)
+
 pause
