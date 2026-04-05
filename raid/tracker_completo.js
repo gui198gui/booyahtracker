@@ -1,7 +1,8 @@
+require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
 
-const API_KEY = 'bb2944672b7a4439bb2677af5fd01b67';
+const API_KEY = process.env.BUNGIE_API_KEY;
 const CLAN_ID = '5343820'; 
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
