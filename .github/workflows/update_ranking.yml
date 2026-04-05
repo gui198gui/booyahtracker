@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false 
+          fetch-depth: 0 
 
       - name: Instalar Node.js
         uses: actions/setup-node@v4
@@ -23,7 +26,7 @@ jobs:
           BUNGIE_API_KEY: ${{ secrets.BUNGIE_API_KEY }}
         run: |
           cd raid
-          npm install dotenv axios
+          npm install axios
           node tracker_completo.js
 
       - name: Mover ranking para a pasta do App
@@ -31,15 +34,16 @@ jobs:
           mkdir -p booyah-tracker/app
           cp raid/ranking.json booyah-tracker/app/ranking.json
 
-      - name: Guardar alterações no GitHub
+      - name: Commit dos ficheiros
         run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          # Faz fetch e reset para garantir que o robô está perfeitamente alinhado com a Main
-          git fetch origin main
-          git reset --soft origin/main
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git add booyah-tracker/app/ranking.json
-          # O commit só acontece se houver mudanças reais no JSON
-          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações para commit"
-          # O "force" garante que o Push passe mesmo que o histórico tenha divergido
-          git push origin main --force
+          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
+
+      - name: Push das alterações (Forçado)
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true
