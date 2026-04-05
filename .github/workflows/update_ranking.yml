@@ -34,8 +34,15 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          
+          # 1. Puxa as alterações que você fez no PC para o robô não ficar atrasado
+          git pull origin main --rebase
+          
+          # 2. Adiciona o ficheiro atualizado
           git add booyah-tracker/app/ranking.json
-          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações para comitar"
-          # O segredo está nestas duas linhas abaixo:
-          git pull --rebase origin main
+          
+          # 3. Tenta gravar. Se não houver mudanças, ele apenas avisa e não dá erro
+          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
+          
+          # 4. Envia para o GitHub
           git push origin main
