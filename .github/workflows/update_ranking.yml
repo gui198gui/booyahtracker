@@ -23,6 +23,7 @@ jobs:
         run: |
           cd raid
           npm install
+          npm install dotenv axios
 
       - name: Executar o Tracker
         env:
