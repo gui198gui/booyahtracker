@@ -30,21 +30,12 @@ jobs:
           npm install axios
           node tracker_completo.js
 
-      - name: Mover e Salvar
+      - name: Guardar alterações no GitHub
         run: |
-          mkdir -p booyah-tracker/app
-          cp raid/ranking.json booyah-tracker/app/ranking.json
-          
-          # Configurar identidade
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          
-          # Limpar qualquer estado anterior para evitar erro de "unstaged changes"
-          git reset --hard HEAD
-          
-          # Adicionar e comitar apenas o arquivo do ranking
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
           git add booyah-tracker/app/ranking.json
-          git commit -m "Auto-update: Ranking atualizado" || echo "Sem mudanças"
-          
-          # Forçar o push sem depender de rebase complexo
-          git push origin main --force
+          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações para comitar"
+          # O segredo está nestas duas linhas abaixo:
+          git pull --rebase origin main
+          git push origin main
