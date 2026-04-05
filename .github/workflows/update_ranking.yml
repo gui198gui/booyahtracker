@@ -8,13 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Dá permissão explícita para o robô escrever
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
         with:
-          persist-credentials: false 
-          fetch-depth: 0 
+          fetch-depth: 0 # Baixa o histórico completo para evitar erros de sincronização
 
       - name: Instalar Node.js
         uses: actions/setup-node@v4
@@ -34,16 +35,9 @@ jobs:
           mkdir -p booyah-tracker/app
           cp raid/ranking.json booyah-tracker/app/ranking.json
 
-      - name: Commit dos ficheiros
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add booyah-tracker/app/ranking.json
-          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
-
-      - name: Push das alterações (Forçado)
-        uses: ad-m/github-push-action@master
+      - name: Guardar alterações (Commit & Push)
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          force: true
+          commit_message: "Auto-update: Ranking atualizado via GitHub Actions"
+          file_pattern: 'booyah-tracker/app/ranking.json'
+          push_options: '--force' # Força o envio para resolver o erro [rejected]
