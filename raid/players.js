@@ -26,5 +26,5 @@ async function buscarJogador(nome, codigo) {
     }
 }
 
-// TESTA COM O TEU NOME E CÓDIGO (Exemplo: 'Nome', '1234')
+// playersteste
 buscarJogador('johnny ganza', '9167');

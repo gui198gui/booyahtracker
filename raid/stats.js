@@ -6,14 +6,14 @@ const membershipId = '4611686018515664333';
 
 async function getRaidStats() {
     try {
-        // O modo 4 corresponde a RAIDS
+        // modo 4 = Raid
         const url = `https://www.bungie.net/Platform/Destiny2/${membershipType}/Account/${membershipId}/Stats/?modes=4`;
 
         const response = await axios.get(url, {
             headers: { 'X-API-Key': API_KEY }
         });
 
-        // Verificamos se existem dados de raid
+        // verify de raids
         const raidData = response.data.Response.mergedAllCharacters.results.allPvE.allTime;
 
         if (raidData) {

@@ -1,5 +1,4 @@
 try {
-    // Tenta carregar o dotenv, mas não morre se não conseguir
 } catch (e) {
     console.log("Ambiente sem dotenv (GitHub/Vercel). Usando variáveis de sistema.");
 }
@@ -14,7 +13,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function getWeeklyClears(mType, mId) {
     try {
-        // 1. Cálculo do Reset (Terça-feira 18h UTC)
+        // reset terça
         const agora = new Date();
         const ultimoReset = new Date(agora);
         const diasDesdeTerca = (agora.getUTCDay() + 5) % 7;
@@ -22,7 +21,7 @@ async function getWeeklyClears(mType, mId) {
         ultimoReset.setUTCHours(18, 0, 0, 0);
         if (agora < ultimoReset) ultimoReset.setUTCDate(ultimoReset.getUTCDate() - 7);
 
-        // 2. Buscar as personagens para não usar o "0" genérico
+        // search de personagens
         const profileUrl = `https://www.bungie.net/Platform/Destiny2/${mType}/Profile/${mId}/?components=200`;
         const profileResp = await axios.get(profileUrl, { headers: { 'X-API-Key': API_KEY } });
         const charIds = Object.keys(profileResp.data.Response.characters.data);
@@ -68,7 +67,7 @@ async function runTracker() {
 
         ranking.sort((a, b) => b.weekly - a.weekly);
         
-        // FORÇAR A CRIAÇÃO DO FICHEIRO
+        // criar ficheiro
         fs.writeFileSync('./ranking.json', JSON.stringify(ranking, null, 2));
         console.log("\n🏆 RANKING ATUALIZADO NO FICHEIRO ranking.json");
         console.table(ranking);

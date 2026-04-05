@@ -1,6 +1,5 @@
 const axios = require('axios');
 
-// Substitui pela tua API KEY (a primeira da lista na tua imagem)
 const API_KEY = 'bb2944672b7a4439bb2677af5fd01b67'; 
 
 async function testarConexao() {
