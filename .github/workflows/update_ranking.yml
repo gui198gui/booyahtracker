@@ -35,8 +35,11 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          # Faz pull primeiro para evitar conflitos (o pulo do gato)
-          git pull --rebase origin main
+          # Faz fetch e reset para garantir que o robô está perfeitamente alinhado com a Main
+          git fetch origin main
+          git reset --soft origin/main
           git add booyah-tracker/app/ranking.json
-          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
-          git push origin main
+          # O commit só acontece se houver mudanças reais no JSON
+          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações para commit"
+          # O "force" garante que o Push passe mesmo que o histórico tenha divergido
+          git push origin main --force
