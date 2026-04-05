@@ -1,6 +1,5 @@
 const axios = require('axios');
 
-const API_KEY = 'bb2944672b7a4439bb2677af5fd01b67'; 
 
 async function testarConexao() {
     try {

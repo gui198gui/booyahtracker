@@ -35,6 +35,8 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          # Faz pull primeiro para evitar conflitos (o pulo do gato)
+          git pull --rebase origin main
           git add booyah-tracker/app/ranking.json
           git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
-          git push
+          git push origin main
