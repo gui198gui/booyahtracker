@@ -2,9 +2,8 @@ name: Auto Update Ranking
 
 on:
   schedule:
-    # cada 30 minutos
     - cron: '0,30 * * * *'
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,25 +19,22 @@ jobs:
           node-version: '20'
 
       - name: Instalar dependências
-        run: |
-          cd raid
-          npm install
-          npm install dotenv axios
+        run: npm install dotenv axios
 
       - name: Executar o Tracker
         env:
           BUNGIE_API_KEY: ${{ secrets.BUNGIE_API_KEY }}
-        run: |
-          cd raid
-          node tracker_completo.js
+        run: node raid/tracker_completo.js
 
       - name: Mover ranking para a pasta do App
-        run: cp raid/ranking.json booyah-tracker/src/app/ranking.json
+        run: |
+          # Copia direto para a pasta app na raiz do booyah-tracker
+          cp raid/ranking.json booyah-tracker/app/ranking.json
 
       - name: Guardar alterações no GitHub
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add booyah-tracker/src/app/ranking.json
+          git add booyah-tracker/app/ranking.json
           git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
           git push
