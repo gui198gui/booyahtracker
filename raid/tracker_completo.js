@@ -1,6 +1,5 @@
 try {
     // Tenta carregar o dotenv, mas não morre se não conseguir
-    require('dotenv').config();
 } catch (e) {
     console.log("Ambiente sem dotenv (GitHub/Vercel). Usando variáveis de sistema.");
 }
