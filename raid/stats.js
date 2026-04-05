@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_KEY = 'bb2944672b7a4439bb2677af5fd01b67';
+const API_KEY = process.env.BUNGIE_API_KEY;
 const membershipType = '3';
 const membershipId = '4611686018515664333';
 

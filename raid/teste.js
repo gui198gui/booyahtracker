@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+const API_KEY = process.env.BUNGIE_API_KEY;
 
 async function testarConexao() {
     try {
