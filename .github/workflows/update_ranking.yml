@@ -1,0 +1,43 @@
+name: Auto Update Ranking
+
+on:
+  schedule:
+    # cada 30 minutos
+    - cron: '0,30 * * * *'
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: |
+          cd raid
+          npm install
+
+      - name: Executar o Tracker
+        env:
+          BUNGIE_API_KEY: ${{ secrets.BUNGIE_API_KEY }}
+        run: |
+          cd raid
+          node tracker_completo.js
+
+      - name: Mover ranking para a pasta do App
+        run: cp raid/ranking.json booyah-tracker/src/app/ranking.json
+
+      - name: Guardar alterações no GitHub
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add booyah-tracker/src/app/ranking.json
+          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
+          git push
