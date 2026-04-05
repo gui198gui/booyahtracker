@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
+try { require('dotenv').config(); } catch (e) { console.log("Rodando sem .env (Ambiente de Produção)"); }
 const axios = require('axios');
 const fs = require('fs');
 
