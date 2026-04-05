@@ -5,7 +5,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#0a0a0a] text-white p-8 font-sans">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl font-extrabold mb-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
-          BOOYAH SIGMA CLAN
+          BOOYAH CLAN
         </h1>
         <p className="text-gray-400 mb-10 tracking-widest uppercase text-sm">Raid Leaderboard Semanal</p>
 
