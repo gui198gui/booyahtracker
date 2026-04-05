@@ -8,20 +8,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
         with:
-          persist-credentials: false 
-          fetch-depth: 0 
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Instalar e Executar Tracker
+      - name: Executar Tracker
         env:
           BUNGIE_API_KEY: ${{ secrets.BUNGIE_API_KEY }}
         run: |
@@ -29,21 +31,18 @@ jobs:
           npm install axios
           node tracker_completo.js
 
-      - name: Mover ranking para a pasta do App
+      - name: Mover e Forçar Push
         run: |
           mkdir -p booyah-tracker/app
           cp raid/ranking.json booyah-tracker/app/ranking.json
-
-      - name: Commit dos ficheiros
-        run: |
+          
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
+          # A MAGIA ESTÁ AQUI:
           git add booyah-tracker/app/ranking.json
-          git commit -m "Auto-update: Ranking atualizado via GitHub Actions" || echo "Sem alterações"
-
-      - name: Push das alterações (Força Bruta)
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          force: true
+          git commit -m "Auto-update: Ranking atualizado" || echo "Sem mudanças"
+          
+          # Isto força o alinhamento com o servidor antes de enviar
+          git pull --rebase origin main
+          git push origin main
