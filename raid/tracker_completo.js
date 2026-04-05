@@ -1,4 +1,4 @@
-try { require('dotenv').config(); } catch (e) { console.log("Rodando sem .env (Ambiente de Produção)"); }
+try { require('dotenv').config(); } catch (e) {}
 const axios = require('axios');
 const fs = require('fs');
 

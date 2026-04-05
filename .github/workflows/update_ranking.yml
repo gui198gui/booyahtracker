@@ -18,17 +18,17 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar dependências
-        run: npm install dotenv axios
-
-      - name: Executar o Tracker
+      - name: Instalar e Executar Tracker
         env:
           BUNGIE_API_KEY: ${{ secrets.BUNGIE_API_KEY }}
-        run: node raid/tracker_completo.js
+        run: |
+          cd raid
+          npm install dotenv axios
+          node tracker_completo.js
 
       - name: Mover ranking para a pasta do App
         run: |
-          # Copia direto para a pasta app na raiz do booyah-tracker
+          mkdir -p booyah-tracker/app
           cp raid/ranking.json booyah-tracker/app/ranking.json
 
       - name: Guardar alterações no GitHub
