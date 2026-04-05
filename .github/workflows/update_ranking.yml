@@ -9,13 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Dá permissão explícita para o robô escrever
+      contents: write # Permissão vital para o robô poder salvar arquivos
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Baixa o histórico completo para evitar erros de sincronização
+          fetch-depth: 0 # Baixa o histórico todo para evitar o erro de sincronização
 
       - name: Instalar Node.js
         uses: actions/setup-node@v4
@@ -40,4 +40,4 @@ jobs:
         with:
           commit_message: "Auto-update: Ranking atualizado via GitHub Actions"
           file_pattern: 'booyah-tracker/app/ranking.json'
-          push_options: '--force' # Força o envio para resolver o erro [rejected]
+          push_options: '--force' # O "martelo" que resolve o erro [rejected]
