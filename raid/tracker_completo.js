@@ -217,11 +217,13 @@ async function runTracker() {
         const stats = await getWeeklyRaidStats(mType, mId);
 
         ranking.push({
-            name,
-            total: stats.total,
-            raids: stats.raids,
-            lastUpdate: new Date().toLocaleString('pt-PT')
-        });
+        name,
+        total: stats.total,
+        raids: stats.raids,
+        membershipId: mId,
+        membershipType: mType,
+        lastUpdate: new Date().toLocaleString('pt-PT')
+    });
 
         console.log(`✅ ${stats.total}`);
         await sleep(400);
