@@ -1,0 +1,50 @@
+name: Auto Update Ranking
+
+on:
+  schedule:
+    - cron: '0,30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Executar Tracker
+        env:
+          BUNGIE_API_KEY: ${{ secrets.BUNGIE_API_KEY }}
+        run: |
+          cd raid
+          npm install axios
+          node tracker_completo.js
+
+      - name: Mover e Substituir Ranking
+        run: |
+          # 1. Garante que a pasta de destino existe (equivalente ao teu C:\...\app no GitHub)
+          mkdir -p booyah-tracker/app
+          
+          # 2. Move o novo arquivo por cima do antigo (Replace)
+          cp raid/ranking.json booyah-tracker/app/ranking.json
+          
+          # 3. Configura o robô
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # 4. Limpa conflitos e força a atualização
+          git add booyah-tracker/app/ranking.json
+          git commit -m "Auto-update: Ranking substituído" || echo "Sem mudanças no ranking"
+          
+          # 5. O "Force" garante que o novo arquivo substitui o antigo no GitHub
+          git push origin main --force
