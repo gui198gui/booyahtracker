@@ -1,132 +1,190 @@
 [
   {
     "name": "Yuu",
-    "weekly": 121,
-    "lastUpdate": "06/04/2026, 02:02:21"
+    "total": 121,
+    "raids": {
+      "Last Wish: Standard": 113,
+      "Garden of Salvation": 4,
+      "Root of Nightmares: Standard": 4
+    },
+    "lastUpdate": "06/04/2026, 02:26:06"
   },
   {
     "name": "johnny ganza",
-    "weekly": 58,
-    "lastUpdate": "06/04/2026, 02:02:34"
+    "total": 58,
+    "raids": {
+      "Last Wish: Standard": 56,
+      "Garden of Salvation": 2
+    },
+    "lastUpdate": "06/04/2026, 02:26:18"
+  },
+  {
+    "name": "suitwy :/",
+    "total": 42,
+    "raids": {
+      "Last Wish: Standard": 29,
+      "Root of Nightmares: Standard": 7,
+      "Vault of Glass: Standard": 2,
+      "Garden of Salvation": 4
+    },
+    "lastUpdate": "06/04/2026, 02:26:52"
   },
   {
     "name": "Harvey",
-    "weekly": 48,
-    "lastUpdate": "06/04/2026, 02:02:45"
-  },
-  {
-    "name": "suitwy :/",
-    "weekly": 48,
-    "lastUpdate": "06/04/2026, 02:03:07"
+    "total": 37,
+    "raids": {
+      "Root of Nightmares: Standard": 7,
+      "Vault of Glass: Standard": 2,
+      "Garden of Salvation": 2,
+      "Last Wish: Standard": 26
+    },
+    "lastUpdate": "06/04/2026, 02:26:27"
   },
   {
     "name": "atomz",
-    "weekly": 25,
-    "lastUpdate": "06/04/2026, 02:02:49"
+    "total": 25,
+    "raids": {
+      "Last Wish: Standard": 21,
+      "Root of Nightmares: Standard": 4
+    },
+    "lastUpdate": "06/04/2026, 02:26:32"
   },
   {
     "name": "aycloxz",
-    "weekly": 19,
-    "lastUpdate": "06/04/2026, 02:02:18"
+    "total": 19,
+    "raids": {
+      "Garden of Salvation": 1,
+      "Last Wish: Standard": 14,
+      "Root of Nightmares: Standard": 4
+    },
+    "lastUpdate": "06/04/2026, 02:26:03"
   },
   {
     "name": "just chill",
-    "weekly": 4,
-    "lastUpdate": "06/04/2026, 02:02:16"
+    "total": 4,
+    "raids": {
+      "Last Wish: Standard": 4
+    },
+    "lastUpdate": "06/04/2026, 02:26:01"
   },
   {
     "name": "Cafune",
-    "weekly": 3,
-    "lastUpdate": "06/04/2026, 02:02:08"
+    "total": 3,
+    "raids": {
+      "Last Wish: Standard": 3
+    },
+    "lastUpdate": "06/04/2026, 02:25:53"
   },
   {
     "name": "uremmy",
-    "weekly": 2,
-    "lastUpdate": "06/04/2026, 02:02:24"
+    "total": 2,
+    "raids": {
+      "Garden of Salvation": 2
+    },
+    "lastUpdate": "06/04/2026, 02:26:09"
   },
   {
     "name": "killanov",
-    "weekly": 2,
-    "lastUpdate": "06/04/2026, 02:02:42"
+    "total": 2,
+    "raids": {
+      "Root of Nightmares: Standard": 2
+    },
+    "lastUpdate": "06/04/2026, 02:26:25"
   },
   {
     "name": "deoxu",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:11"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:25:57"
   },
   {
     "name": "bytes",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:14"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:25:59"
   },
   {
     "name": "finesya",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:26"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:11"
   },
   {
     "name": "BMW_M5_V10_S85B50",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:30"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:14"
   },
   {
     "name": "suitwy :/",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:32"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:15"
   },
   {
     "name": "Redacted1512",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:37"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:21"
   },
   {
     "name": "thechibbis",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:39"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:23"
   },
   {
     "name": "Err0r 404 PT",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:47"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:30"
   },
   {
     "name": "Heartbeats",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:52"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:35"
   },
   {
     "name": "CãoMonista",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:54"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:37"
   },
   {
     "name": "XxjowjowxX",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:56"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:40"
   },
   {
     "name": "Anonyme PT",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:02:59"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:43"
   },
   {
     "name": "死の予感",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:03:01"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:45"
   },
   {
     "name": "Sennin",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:03:03"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:47"
   },
   {
     "name": "sui",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:03:05"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:50"
   },
   {
     "name": "Super",
-    "weekly": 0,
-    "lastUpdate": "06/04/2026, 02:03:09"
+    "total": 0,
+    "raids": {},
+    "lastUpdate": "06/04/2026, 02:26:54"
   }
 ]
