@@ -8,10 +8,10 @@ const CLAN_ID = '5343820';
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-let activityCache = {}; // referenceId -> name
+let activityCache = {}; 
 
 /**
- * 📦 1. Baixar manifest e construir mapa de atividades
+ *   Baixar manifest e construir mapa de atividades
  */
 async function loadManifest() {
     console.log("📦 A carregar manifest...");
@@ -60,7 +60,7 @@ function getLastReset() {
 }
 
 /**
- * 🎯 Verificar se é RAID
+ *  Verificar se é RAID
  */
 function isRaid(hash) {
     const name = activityCache[hash]?.name?.toLowerCase() || "";
@@ -86,7 +86,7 @@ function getActivityName(hash) {
 }
 
 /**
- * 🔥 Buscar stats semanais com manifest
+ *  Buscar stats semanais com manifest
  */
 async function getWeeklyRaidStats(mType, mId) {
     const ultimoReset = getLastReset();
