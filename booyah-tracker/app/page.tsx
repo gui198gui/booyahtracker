@@ -1,61 +1,76 @@
-"use client";
+import data from './ranking.json';
 
-import { useEffect, useState } from "react";
-
-type Player = {
-  name: string;
-  total: number;
-  raids: Record<string, number>;
-  lastUpdate: string;
-};
-
-export default function Page() {
-  const [data, setData] = useState<Player[]>([]);
-
-  useEffect(() => {
-    fetch("/ranking.json")
-      .then((res) => res.json())
-      .then(setData);
-  }, []);
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white p-6">
-      <h1 className="text-3xl font-bold mb-6">🔥 Raid Ranking</h1>
+    <main className="min-h-screen bg-[#0a0a0a] text-white p-8 font-sans">
+      <div className="max-w-4xl mx-auto">
+        
+        <h1 className="text-5xl font-extrabold mb-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
+          BOOYAH CLAN
+        </h1>
 
-      <div className="space-y-6">
-        {data.map((player, index) => (
-          <div
-            key={player.name}
-            className="border border-gray-700 rounded-xl p-4 bg-zinc-900"
-          >
-            {/* HEADER */}
-            <div className="flex justify-between items-center">
-              <h2 className="text-xl font-bold">
-                #{index + 1} {player.name}
-              </h2>
+        <p className="text-gray-400 mb-10 tracking-widest uppercase text-sm">
+          Raid Leaderboard Semanal
+        </p>
 
-              <span className="text-green-400 font-bold">
-                {player.total} clears
-              </span>
-            </div>
+        <div className="bg-[#111] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+          
+          <table className="w-full text-left">
+            
+            <thead>
+              <tr className="bg-white/5 text-gray-400 text-xs uppercase">
+                <th className="p-5">Rank</th>
+                <th className="p-5">Guardião</th>
+                <th className="p-5 text-right">Total Clears</th>
+              </tr>
+            </thead>
 
-            {/* RAIDS */}
-            <div className="mt-3 space-y-1 text-sm text-gray-300">
-              {Object.entries(player.raids).map(([raid, count]) => (
-                <div key={raid} className="flex justify-between">
-                  <span>{raid}</span>
-                  <span>{count}</span>
-                </div>
+            <tbody>
+              {data.map((player: any, index: number) => (
+                <tr
+                  key={player.name}
+                  className="border-t border-white/5 hover:bg-white/[0.02] transition-all"
+                >
+                  
+                  {/* RANK */}
+                  <td className="p-5 text-gray-500 font-mono">
+                    #{index + 1}
+                  </td>
+
+                  {/* NAME + RAID TAGS */}
+                  <td className="p-5">
+                    <div className="font-bold text-gray-200">
+                      {player.name}
+                    </div>
+
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {Object.entries(player.raids || {}).map(
+                        ([raid, count]: any) =>
+                          count > 0 && (
+                            <span
+                              key={raid}
+                              className="text-[9px] bg-white/5 text-gray-300 px-1.5 rounded border border-white/10 font-mono"
+                            >
+                              {raid}: {count}
+                            </span>
+                          )
+                      )}
+                    </div>
+                  </td>
+
+                  {/* TOTAL CLEARS */}
+                  <td className="p-5 text-right font-black text-2xl text-yellow-500">
+                    {player.total ?? 0}
+                  </td>
+
+                </tr>
               ))}
-            </div>
+            </tbody>
 
-            {/* FOOTER */}
-            <div className="text-xs text-gray-500 mt-2">
-              Updated: {player.lastUpdate}
-            </div>
-          </div>
-        ))}
+          </table>
+
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
