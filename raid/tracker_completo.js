@@ -2,6 +2,7 @@ try {
 } catch (e) {
     console.log("Ambiente sem dotenv (GitHub/Vercel). Usando variáveis de sistema.");
 }
+require('dotenv').config();
 
 const axios = require('axios');
 const fs = require('fs');
