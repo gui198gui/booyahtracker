@@ -30,22 +30,21 @@ jobs:
           npm install axios
           node tracker_completo.js
 
-      - name: Mover e Forçar Atualização
+      - name: Mover e Substituir Ranking
         run: |
-          # Garante que a pasta correta dentro de src existe
-          mkdir -p src/app
-          cp raid/ranking.json src/app/ranking.json
+          # 1. Garante que a pasta de destino existe (equivalente ao teu C:\...\app no GitHub)
+          mkdir -p booyah-tracker/app
           
+          # 2. Move o novo arquivo por cima do antigo (Replace)
+          cp raid/ranking.json booyah-tracker/app/ranking.json
+          
+          # 3. Configura o robô
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # Remove a pasta antiga 'booyah-tracker' se ela ainda existir para não sujar o repo
-          rm -rf booyah-tracker
+          # 4. Limpa conflitos e força a atualização
+          git add booyah-tracker/app/ranking.json
+          git commit -m "Auto-update: Ranking substituído" || echo "Sem mudanças no ranking"
           
-          git reset --hard HEAD
-          git pull origin main --rebase
-          
-          # Adiciona apenas o ficheiro na pasta correta
-          git add src/app/ranking.json
-          git commit -m "Auto-update: Ranking atualizado" || echo "Sem mudanças"
-          git push origin main
+          # 5. O "Force" garante que o novo arquivo substitui o antigo no GitHub
+          git push origin main --force
