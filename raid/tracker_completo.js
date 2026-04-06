@@ -1,5 +1,6 @@
 require('dotenv').config();
-
+let activityTypeCache = {};
+let raidTypeIds = new Set();
 const axios = require('axios');
 const fs = require('fs');
 
@@ -7,11 +8,11 @@ const API_KEY = process.env.BUNGIE_API_KEY;
 const CLAN_ID = '5343820';
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-
-let activityCache = {}; 
+let raidTypeHashes = new Set();
+let activityCache = {};
 
 /**
- *   Baixar manifest e construir mapa de atividades
+ * 📦 Load Manifest
  */
 async function loadManifest() {
     console.log("📦 A carregar manifest...");
@@ -21,7 +22,8 @@ async function loadManifest() {
         { headers: { 'X-API-Key': API_KEY } }
     );
 
-    const path = manifestResp.data.Response.jsonWorldComponentContentPaths.en.DestinyActivityDefinition;
+    const path =
+        manifestResp.data.Response.jsonWorldComponentContentPaths.en.DestinyActivityDefinition;
 
     const fullUrl = `https://www.bungie.net${path}`;
 
@@ -32,70 +34,91 @@ async function loadManifest() {
     for (const hash in activities) {
         const act = activities[hash];
 
-        if (act.displayProperties && act.displayProperties.name) {
-            activityCache[hash] = {
-                name: act.displayProperties.name,
-                type: act.activityTypeHash
-            };
-        }
-    }
+        if (!act.displayProperties?.name) continue;
 
-    console.log(`✅ Manifest carregado (${Object.keys(activityCache).length} atividades)`);
+        activityCache[hash] = {
+            name: act.displayProperties.name,
+            typeHash: act.activityTypeHash
+        };
+    }
+    const typeResp = await axios.get(
+    "https://www.bungie.net/Platform/Destiny2/Manifest/",
+    { headers: { 'X-API-Key': API_KEY } }
+);
+
+const typePath =
+    typeResp.data.Response.jsonWorldComponentContentPaths.en.DestinyActivityTypeDefinition;
+
+const typeUrl = `https://www.bungie.net${typePath}`;
+
+const typeData = await axios.get(typeUrl);
+
+const types = typeData.data;
+
+for (const hash in types) {
+    const t = types[hash];
+
+    activityTypeCache[hash] = t;
+}
+for (const hash in activityTypeCache) {
+    const type = activityTypeCache[hash];
+
+    const name = type.displayProperties?.name?.toLowerCase();
+
+    if (name === "raid") {
+        raidTypeIds.add(hash);
+    }
+}
+
+    console.log(`✅ Manifest carregado (${Object.keys(activityCache).length})`);
 }
 
 /**
- * 📅 Reset semanal
+ * 📅 Reset semanal (terça 18h UTC)
  */
 function getLastReset() {
-    const agora = new Date();
-    const reset = new Date(agora);
+    const now = new Date();
+    const reset = new Date(now);
 
-    const diasDesdeTerca = (agora.getUTCDay() + 5) % 7;
-    reset.setUTCDate(agora.getUTCDate() - diasDesdeTerca);
+    const daysSinceTuesday = (now.getUTCDay() + 5) % 7;
+    reset.setUTCDate(now.getUTCDate() - daysSinceTuesday);
     reset.setUTCHours(18, 0, 0, 0);
 
-    if (agora < reset) reset.setUTCDate(reset.getUTCDate() - 7);
+    if (now < reset) reset.setUTCDate(reset.getUTCDate() - 7);
 
     return reset;
 }
 
 /**
- *  Verificar se é RAID
+ * 🧠 RAID FILTER (FIXED - não baseado em "raid" string genérica)
  */
 function isRaid(hash) {
-    const name = activityCache[hash]?.name?.toLowerCase() || "";
+    const act = activityCache[hash];
+    if (!act) return false;
 
-    return (
-        name.includes("raid") ||
-        name.includes("last wish") ||
-        name.includes("garden") ||
-        name.includes("crypt") ||
-        name.includes("vault") ||
-        name.includes("king") ||
-        name.includes("vow") ||
-        name.includes("root") ||
-        name.includes("crota")
-    );
+    return raidTypeIds.has(String(act.typeHash));
 }
 
+
 /**
- * 🔍 Nome da atividade
+ * 🧾 Get activity name
  */
 function getActivityName(hash) {
     return activityCache[hash]?.name || `Unknown (${hash})`;
 }
 
 /**
- *  Buscar stats semanais com manifest
+ * 🔍 MAIN STATS
  */
 async function getWeeklyRaidStats(mType, mId) {
-    const ultimoReset = getLastReset();
+    const reset = getLastReset();
 
     let raidCounts = {};
-    let totalClears = 0;
+    let total = 0;
 
     try {
         const profileUrl = `https://www.bungie.net/Platform/Destiny2/${mType}/Profile/${mId}/?components=200`;
+
         const profileResp = await axios.get(profileUrl, {
             headers: { 'X-API-Key': API_KEY }
         });
@@ -104,10 +127,10 @@ async function getWeeklyRaidStats(mType, mId) {
 
         for (const charId of charIds) {
             let page = 0;
-            let done = false;
             let seen = new Set();
+            let stop = false;
 
-            while (!done) {
+            while (!stop) {
                 const url = `https://www.bungie.net/Platform/Destiny2/${mType}/Account/${mId}/Character/${charId}/Stats/Activities/?mode=4&count=50&page=${page}`;
 
                 const resp = await axios.get(url, {
@@ -115,42 +138,43 @@ async function getWeeklyRaidStats(mType, mId) {
                 });
 
                 const acts = resp.data.Response.activities;
-
                 if (!acts || acts.length === 0) break;
 
                 for (const a of acts) {
-                    const id = a.activityDetails.instanceId;
-                    const hash = a.activityDetails.referenceId;
-                    const date = new Date(a.period);
+    const id = a.activityDetails.instanceId;
+    const hash = a.activityDetails.referenceId;
+    const date = new Date(a.period);
 
-                    if (date <= ultimoReset) {
-                        done = true;
-                        break;
-                    }
+    // 1. RESET CHECK (não quebra logo tudo)
+    if (date <= reset) {
+        stop = true;
+        continue;
+    }
 
-                    const isComplete = a.values.completed.basic.value === 1;
+    // 2. VALID CLEAR REAL
+    if (!isRealClear(a)) continue;
 
-                    if (isComplete && !seen.has(id)) {
-                        seen.add(id);
+    // 3. RAID FILTER
+    if (!isRaid(hash)) continue;
 
-                        if (!isRaid(hash)) continue;
+    // 4. DUPLICADOS
+    if (seen.has(id)) continue;
+    seen.add(id);
 
-                        const name = getActivityName(hash);
+    const name = getActivityName(hash);
 
-                        if (!raidCounts[name]) raidCounts[name] = 0;
-                        raidCounts[name]++;
-                        totalClears++;
+    raidCounts[name] = (raidCounts[name] || 0) + 1;
+    total++;
 
-                        console.log(`✔️ ${name} - ${date.toISOString()}`);
-                    }
-                }
+    console.log(`✔️ ${name} - ${date.toISOString()}`);
+}
 
                 page++;
                 await sleep(200);
             }
         }
 
-        return { total: totalClears, raids: raidCounts };
+        return { total, raids: raidCounts };
 
     } catch (e) {
         console.error("❌ Erro:", e.message);
@@ -158,17 +182,25 @@ async function getWeeklyRaidStats(mType, mId) {
     }
 }
 
+function isRealClear(activity) {
+    return (
+        activity.values?.completed?.basic?.value === 1 &&
+        activity.activityDetails?.mode === 4
+    );
+}
+
 /**
- * 🏆 Tracker
+ * 🏆 TRACKER
  */
 async function runTracker() {
-    console.log("🚀 A iniciar tracker...\n");
+    console.log("🚀 Tracker iniciado...\n");
 
     await loadManifest();
 
     let ranking = [];
 
     const clanUrl = `https://www.bungie.net/Platform/GroupV2/${CLAN_ID}/Members/`;
+
     const clanResp = await axios.get(clanUrl, {
         headers: { 'X-API-Key': API_KEY }
     });
@@ -192,7 +224,7 @@ async function runTracker() {
         });
 
         console.log(`✅ ${stats.total}`);
-        await sleep(500);
+        await sleep(400);
     }
 
     ranking.sort((a, b) => b.total - a.total);
