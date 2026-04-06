@@ -32,8 +32,8 @@ jobs:
 
       - name: Mover e Forçar Atualização
         run: |
-          mkdir -p booyah-tracker/src/app
-          cp raid/ranking.json booyah-tracker/src/app/ranking.json
+          mkdir -p booyah-tracker/app
+          cp raid/ranking.json booyah-tracker/app/ranking.json
           
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -45,6 +45,6 @@ jobs:
           git pull origin main --rebase
           
           # Adiciona o novo ranking e envia
-          git add booyah-tracker/src/app/ranking.json
+          git add booyah-tracker/app/ranking.json
           git commit -m "Auto-update: Ranking atualizado" || echo "Sem mudanças"
           git push origin main
