@@ -28,56 +28,14 @@ export default function Home() {
                   <td className="p-5">
                     <div className="font-bold text-gray-200">{player.name}</div>
                     <div className="flex flex-wrap gap-1 mt-1">
-
-  {player.raids?.["Garden of Salvation"] > 0 && (
-    <span className="text-[9px] bg-green-500/20 text-green-400 px-1.5 rounded border border-green-500/30 font-mono">
-      GOS: {player.raids["Garden of Salvation"]}
-    </span>
-  )}
-
-  {player.raids?.["Deep Stone Crypt"] > 0 && (
-    <span className="text-[9px] bg-blue-500/20 text-blue-400 px-1.5 rounded border border-blue-500/30 font-mono">
-      DSC: {player.raids["Deep Stone Crypt"]}
-    </span>
-  )}
-
-  {player.raids?.["Vault of Glass"] > 0 && (
-    <span className="text-[9px] bg-yellow-500/20 text-yellow-400 px-1.5 rounded border border-yellow-500/30 font-mono">
-      VOG: {player.raids["Vault of Glass"]}
-    </span>
-  )}
-
-  {player.raids?.["Vow of the Disciple"] > 0 && (
-    <span className="text-[9px] bg-purple-500/20 text-purple-400 px-1.5 rounded border border-purple-500/30 font-mono">
-      VOTD: {player.raids["Vow of the Disciple"]}
-    </span>
-  )}
-
-  {player.raids?.["King's Fall"] > 0 && (
-    <span className="text-[9px] bg-red-500/20 text-red-400 px-1.5 rounded border border-red-500/30 font-mono">
-      KF: {player.raids["King's Fall"]}
-    </span>
-  )}
-
-  {player.raids?.["Crota's End"] > 0 && (
-    <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 rounded border border-emerald-500/30 font-mono">
-      CE: {player.raids["Crota's End"]}
-    </span>
-  )}
-
-  {player.raids?.["Root of Nightmares"] > 0 && (
-    <span className="text-[9px] bg-pink-500/20 text-pink-400 px-1.5 rounded border border-pink-500/30 font-mono">
-      RON: {player.raids["Root of Nightmares"]}
-    </span>
-  )}
-
-  {player.raids?.["Last Wish"] > 0 && (
-    <span className="text-[9px] bg-orange-500/20 text-orange-400 px-1.5 rounded border border-orange-500/30 font-mono">
-      LW: {player.raids["Last Wish"]}
-    </span>
-  )}
-
-</div>
+                      {player.garden > 0 && <span className="text-[9px] bg-green-500/20 text-green-400 px-1.5 rounded border border-green-500/30 font-mono">GOS: {player.garden}</span>}
+                      {player.dsc > 0 && <span className="text-[9px] bg-blue-500/20 text-blue-400 px-1.5 rounded border border-blue-500/30 font-mono">DSC: {player.dsc}</span>}
+                      {player.vog > 0 && <span className="text-[9px] bg-yellow-500/20 text-yellow-400 px-1.5 rounded border border-yellow-500/30 font-mono">VOG: {player.vog}</span>}
+                      {player.votd > 0 && <span className="text-[9px] bg-purple-500/20 text-purple-400 px-1.5 rounded border border-purple-500/30 font-mono">VOTD: {player.votd}</span>}
+                      {player.kf > 0 && <span className="text-[9px] bg-red-500/20 text-red-400 px-1.5 rounded border border-red-500/30 font-mono">KF: {player.kf}</span>}
+                      {player.crota > 0 && <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 rounded border border-emerald-500/30 font-mono">CE: {player.crota}</span>}
+                      {player.se > 0 && <span className="text-[9px] bg-pink-500/20 text-pink-400 px-1.5 rounded border border-pink-500/30 font-mono">SE: {player.se}</span>}
+                    </div>
                   </td>
                   {/* ------------------------------------------- */}
 
