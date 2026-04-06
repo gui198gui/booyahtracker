@@ -1,15 +1,21 @@
-import data from "./ranking.json";
+import data from './ranking.json';
+async function getEmblem(membershipType: number, membershipId: string) {
+  const res = await fetch(
+    `https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=200`,
+    {
+      headers: {
+        "X-API-Key": process.env.NEXT_PUBLIC_BUNGIE_API_KEY!,
+      },
+    }
+  );
 
-const raidIcons: Record<string, string> = {
-  "Root of Nightmares":
-    "https://www.bungie.net/common/destiny2_content/icons/raid_root.png",
-  "Garden of Salvation":
-    "https://www.bungie.net/common/destiny2_content/icons/raid_gos.png",
-  "Last Wish":
-    "https://www.bungie.net/common/destiny2_content/icons/raid_lastwish.png",
-  "King's Fall":
-    "https://www.bungie.net/common/destiny2_content/icons/raid_kingsfall.png",
-};
+  const data = await res.json();
+
+  const profile = data?.Response?.profile?.data;
+  const emblemHash = profile?.userInfo?.iconPath;
+
+  return emblemHash;
+}
 
 export default function Home() {
   return (
@@ -17,11 +23,11 @@ export default function Home() {
       <div className="max-w-4xl mx-auto">
 
         <h1 className="text-5xl font-extrabold mb-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
-          BOOYAH CLAN
+          BOOYAH NIGGA CLAN
         </h1>
 
         <p className="text-gray-400 mb-10 tracking-widest uppercase text-sm">
-          Raid Leaderboard Semanal
+          Quem tiver em 1º é gay
         </p>
 
         <div className="bg-[#111] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
@@ -40,37 +46,19 @@ export default function Home() {
               {data.map((player: any, index: number) => (
                 <tr
                   key={player.name}
-                  className="relative border-t border-white/5 hover:bg-white/[0.02] transition-all"
+                  className="border-t border-white/5 hover:bg-white/[0.02] transition-all"
                 >
-                  {/* BACKGROUND EMBLEM */}
-                  {player.emblem && (
-                    <td
-                      colSpan={3}
-                      className="absolute inset-0 opacity-10 pointer-events-none"
-                      style={{
-                        backgroundImage: `url(${player.emblem})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center"
-                      }}
-                    />
-                  )}
-
-                  {/* CONTENT ON TOP */}
-                  <td className="relative z-10 p-5 text-gray-500 font-mono">
-                    #{index + 1}
-                  </td>
 
                   {/* RANK */}
                   <td className="p-5 text-gray-500 font-mono">
                     #{index + 1}
                   </td>
 
-                  {/* NAME + EMBLEM + RAIDS */}
+                  {/* NAME + RAID TAGS */}
                   <td className="p-5">
+                    <div className="flex items-center gap-3">
 
-                    <div className="flex items-center gap-3 font-bold text-gray-200">
-
-                      {/* EMBLEM (se existir no JSON) */}
+                      {/* EMBLEM */}
                       {player.emblem && (
                         <img
                           src={`https://www.bungie.net${player.emblem}`}
@@ -79,32 +67,26 @@ export default function Home() {
                         />
                       )}
 
-                      {player.name}
+                      {/* NAME */}
+                      <div className="font-bold text-gray-200">
+                        {player.name}
+                      </div>
+
                     </div>
 
-                    {/* RAIDS */}
-                    <div className="flex flex-wrap gap-1 mt-2">
+                    <div className="flex flex-wrap gap-1 mt-1">
                       {Object.entries(player.raids || {}).map(
                         ([raid, count]: any) =>
                           count > 0 && (
                             <span
                               key={raid}
-                              className="text-[10px] bg-white/5 text-gray-300 px-2 py-1 rounded border border-white/10 font-mono flex items-center gap-1"
+                              className="text-[9px] bg-white/5 text-gray-300 px-1.5 rounded border border-white/10 font-mono"
                             >
-
-                              {raidIcons[raid] && (
-                                <img
-                                  src={raidIcons[raid]}
-                                  className="w-3 h-3 opacity-80"
-                                />
-                              )}
-
                               {raid}: {count}
                             </span>
                           )
                       )}
                     </div>
-
                   </td>
 
                   {/* TOTAL CLEARS */}
