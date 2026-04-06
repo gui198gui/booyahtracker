@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white p-8 font-sans">
       <div className="max-w-4xl mx-auto">
-        
+
         <h1 className="text-5xl font-extrabold mb-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
           BOOYAH CLAN
         </h1>
@@ -25,9 +25,9 @@ export default function Home() {
         </p>
 
         <div className="bg-[#111] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
-          
+
           <table className="w-full text-left">
-            
+
             <thead>
               <tr className="bg-white/5 text-gray-400 text-xs uppercase">
                 <th className="p-5">Rank</th>
@@ -40,13 +40,26 @@ export default function Home() {
               {data.map((player: any, index: number) => (
                 <tr
                   key={player.name}
-                  className={`border-t border-white/5 hover:bg-white/[0.02] transition-all ${
-                    index === 0
-                      ? "bg-yellow-500/5 shadow-[0_0_25px_rgba(234,179,8,0.15)]"
-                      : ""
-                  }`}
+                  className="relative border-t border-white/5 hover:bg-white/[0.02] transition-all"
                 >
-                  
+                  {/* BACKGROUND EMBLEM */}
+                  {player.emblem && (
+                    <td
+                      colSpan={3}
+                      className="absolute inset-0 opacity-10 pointer-events-none"
+                      style={{
+                        backgroundImage: `url(${player.emblem})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center"
+                      }}
+                    />
+                  )}
+
+                  {/* CONTENT ON TOP */}
+                  <td className="relative z-10 p-5 text-gray-500 font-mono">
+                    #{index + 1}
+                  </td>
+
                   {/* RANK */}
                   <td className="p-5 text-gray-500 font-mono">
                     #{index + 1}
@@ -54,9 +67,9 @@ export default function Home() {
 
                   {/* NAME + EMBLEM + RAIDS */}
                   <td className="p-5">
-                    
+
                     <div className="flex items-center gap-3 font-bold text-gray-200">
-                      
+
                       {/* EMBLEM (se existir no JSON) */}
                       {player.emblem && (
                         <img
@@ -78,7 +91,7 @@ export default function Home() {
                               key={raid}
                               className="text-[10px] bg-white/5 text-gray-300 px-2 py-1 rounded border border-white/10 font-mono flex items-center gap-1"
                             >
-                              
+
                               {raidIcons[raid] && (
                                 <img
                                   src={raidIcons[raid]}

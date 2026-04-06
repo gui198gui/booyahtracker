@@ -42,33 +42,33 @@ async function loadManifest() {
         };
     }
     const typeResp = await axios.get(
-    "https://www.bungie.net/Platform/Destiny2/Manifest/",
-    { headers: { 'X-API-Key': API_KEY } }
-);
+        "https://www.bungie.net/Platform/Destiny2/Manifest/",
+        { headers: { 'X-API-Key': API_KEY } }
+    );
 
-const typePath =
-    typeResp.data.Response.jsonWorldComponentContentPaths.en.DestinyActivityTypeDefinition;
+    const typePath =
+        typeResp.data.Response.jsonWorldComponentContentPaths.en.DestinyActivityTypeDefinition;
 
-const typeUrl = `https://www.bungie.net${typePath}`;
+    const typeUrl = `https://www.bungie.net${typePath}`;
 
-const typeData = await axios.get(typeUrl);
+    const typeData = await axios.get(typeUrl);
 
-const types = typeData.data;
+    const types = typeData.data;
 
-for (const hash in types) {
-    const t = types[hash];
+    for (const hash in types) {
+        const t = types[hash];
 
-    activityTypeCache[hash] = t;
-}
-for (const hash in activityTypeCache) {
-    const type = activityTypeCache[hash];
-
-    const name = type.displayProperties?.name?.toLowerCase();
-
-    if (name === "raid") {
-        raidTypeIds.add(hash);
+        activityTypeCache[hash] = t;
     }
-}
+    for (const hash in activityTypeCache) {
+        const type = activityTypeCache[hash];
+
+        const name = type.displayProperties?.name?.toLowerCase();
+
+        if (name === "raid") {
+            raidTypeIds.add(hash);
+        }
+    }
 
     console.log(`✅ Manifest carregado (${Object.keys(activityCache).length})`);
 }
@@ -141,33 +141,33 @@ async function getWeeklyRaidStats(mType, mId) {
                 if (!acts || acts.length === 0) break;
 
                 for (const a of acts) {
-    const id = a.activityDetails.instanceId;
-    const hash = a.activityDetails.referenceId;
-    const date = new Date(a.period);
+                    const id = a.activityDetails.instanceId;
+                    const hash = a.activityDetails.referenceId;
+                    const date = new Date(a.period);
 
-    // 1. RESET CHECK (não quebra logo tudo)
-    if (date <= reset) {
-        stop = true;
-        continue;
-    }
+                    // 1. RESET CHECK (não quebra logo tudo)
+                    if (date <= reset) {
+                        stop = true;
+                        break;
+                    }
 
-    // 2. VALID CLEAR REAL
-    if (!isRealClear(a)) continue;
+                    // 2. VALID CLEAR REAL
+                    if (!isRealClear(a)) continue;
 
-    // 3. RAID FILTER
-    if (!isRaid(hash)) continue;
+                    // 3. RAID FILTER
+                    if (!isRaid(hash)) continue;
 
-    // 4. DUPLICADOS
-    if (seen.has(id)) continue;
-    seen.add(id);
+                    // 4. DUPLICADOS
+                    if (seen.has(id)) continue;
+                    seen.add(id);
 
-    const name = getActivityName(hash);
+                    const name = getActivityName(hash);
 
-    raidCounts[name] = (raidCounts[name] || 0) + 1;
-    total++;
+                    raidCounts[name] = (raidCounts[name] || 0) + 1;
+                    total++;
 
-    console.log(`✔️ ${name} - ${date.toISOString()}`);
-}
+                    console.log(`✔️ ${name} - ${date.toISOString()}`);
+                }
 
                 page++;
                 await sleep(200);
@@ -183,9 +183,13 @@ async function getWeeklyRaidStats(mType, mId) {
 }
 
 function isRealClear(activity) {
+    const completed = activity.values?.completed?.basic?.value;
+    const completionReason = activity.values?.completionReason?.basic?.value;
+
     return (
-        activity.values?.completed?.basic?.value === 1 &&
-        activity.activityDetails?.mode === 4
+        completed === 1 &&
+        activity.activityDetails?.mode === 4 &&
+        completionReason !== 3 // 3 = abandoned / invalid run
     );
 }
 
@@ -211,19 +215,31 @@ async function runTracker() {
         const name = m.destinyUserInfo.bungieGlobalDisplayName;
         const mId = m.destinyUserInfo.membershipId;
         const mType = m.destinyUserInfo.membershipType;
+        const profileUrl = `https://www.bungie.net/Platform/Destiny2/${mType}/Profile/${mId}/?components=100`;
+
+        const profileResp = await axios.get(profileUrl, {
+            headers: { 'X-API-Key': API_KEY }
+        });
+
+        const profile = profileResp.data.Response.profile.data;
+
+        const emblem = profile?.userInfo?.iconPath
+            ? `https://www.bungie.net${profile.userInfo.iconPath}`
+            : null;
 
         process.stdout.write(`⏳ ${name}... `);
 
         const stats = await getWeeklyRaidStats(mType, mId);
 
         ranking.push({
-        name,
-        total: stats.total,
-        raids: stats.raids,
-        membershipId: mId,
-        membershipType: mType,
-        lastUpdate: new Date().toLocaleString('pt-PT')
-    });
+            name,
+            total: stats.total,
+            raids: stats.raids,
+            emblem,
+            membershipId: mId,
+            membershipType: mType,
+            lastUpdate: new Date().toLocaleString('pt-PT')
+        });
 
         console.log(`✅ ${stats.total}`);
         await sleep(400);
