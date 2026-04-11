@@ -1,9 +1,9 @@
 [
   {
     "name": "Yuu",
-    "total": 23,
+    "total": 28,
     "raids": {
-      "Deep Stone Crypt": 3,
+      "Deep Stone Crypt": 8,
       "Root of Nightmares: Standard": 17,
       "King's Fall: Standard": 1,
       "Salvation's Edge: Standard": 1,
@@ -11,65 +11,75 @@
     },
     "membershipId": "4611686018485601045",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:36:46"
+    "lastUpdate": "11/04/2026, 02:25:21"
   },
   {
     "name": "thechibbis",
-    "total": 20,
+    "total": 25,
     "raids": {
-      "Root of Nightmares: Standard": 17,
-      "Deep Stone Crypt": 3
+      "Deep Stone Crypt": 8,
+      "Root of Nightmares: Standard": 17
     },
     "membershipId": "4611686018478886116",
     "membershipType": 2,
-    "lastUpdate": "10/04/2026, 23:37:00"
+    "lastUpdate": "11/04/2026, 02:25:38"
   },
   {
     "name": "atomz",
-    "total": 18,
+    "total": 23,
     "raids": {
       "Root of Nightmares: Standard": 15,
-      "Deep Stone Crypt": 3
+      "Deep Stone Crypt": 8
     },
     "membershipId": "4611686018536652590",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:37:11"
+    "lastUpdate": "11/04/2026, 02:25:49"
   },
   {
     "name": "aycloxz",
-    "total": 13,
+    "total": 18,
     "raids": {
       "Root of Nightmares: Standard": 12,
-      "Deep Stone Crypt": 1
+      "Deep Stone Crypt": 6
     },
     "membershipId": "4611686018447957458",
     "membershipType": 1,
-    "lastUpdate": "10/04/2026, 23:36:43"
+    "lastUpdate": "11/04/2026, 02:25:19"
   },
   {
     "name": "Harvey",
-    "total": 13,
+    "total": 15,
     "raids": {
       "Root of Nightmares: Standard": 2,
-      "Garden of Salvation": 4,
+      "Garden of Salvation": 6,
       "Salvation's Edge: Standard": 5,
       "Last Wish: Standard": 2
     },
     "membershipId": "4611686018428756573",
     "membershipType": 2,
-    "lastUpdate": "10/04/2026, 23:37:06"
+    "lastUpdate": "11/04/2026, 02:25:43"
   },
   {
     "name": "suitwy :/",
-    "total": 10,
+    "total": 12,
     "raids": {
       "Last Wish: Standard": 2,
       "Root of Nightmares: Standard": 2,
-      "Garden of Salvation": 6
+      "Garden of Salvation": 8
     },
     "membershipId": "4611686018512060330",
     "membershipType": 2,
-    "lastUpdate": "10/04/2026, 23:37:35"
+    "lastUpdate": "11/04/2026, 02:26:07"
+  },
+  {
+    "name": "uremmy",
+    "total": 2,
+    "raids": {
+      "Garden of Salvation": 2
+    },
+    "membershipId": "4611686018462927610",
+    "membershipType": 2,
+    "lastUpdate": "11/04/2026, 02:25:25"
   },
   {
     "name": "Cafune",
@@ -77,7 +87,7 @@
     "raids": {},
     "membershipId": "4611686018532779470",
     "membershipType": 1,
-    "lastUpdate": "10/04/2026, 23:36:33"
+    "lastUpdate": "11/04/2026, 02:25:06"
   },
   {
     "name": "zz",
@@ -85,7 +95,7 @@
     "raids": {},
     "membershipId": "4611686018554847627",
     "membershipType": 1,
-    "lastUpdate": "10/04/2026, 23:36:35"
+    "lastUpdate": "11/04/2026, 02:25:10"
   },
   {
     "name": "deoxu",
@@ -93,7 +103,7 @@
     "raids": {},
     "membershipId": "4611686018495018767",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:36:38"
+    "lastUpdate": "11/04/2026, 02:25:12"
   },
   {
     "name": "bytes",
@@ -101,7 +111,7 @@
     "raids": {},
     "membershipId": "4611686018468753458",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:36:40"
+    "lastUpdate": "11/04/2026, 02:25:15"
   },
   {
     "name": "just chill",
@@ -109,15 +119,7 @@
     "raids": {},
     "membershipId": "4611686018537955341",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:36:42"
-  },
-  {
-    "name": "uremmy",
-    "total": 0,
-    "raids": {},
-    "membershipId": "4611686018462927610",
-    "membershipType": 2,
-    "lastUpdate": "10/04/2026, 23:36:48"
+    "lastUpdate": "11/04/2026, 02:25:17"
   },
   {
     "name": "finesya",
@@ -125,7 +127,7 @@
     "raids": {},
     "membershipId": "4611686018520004201",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:36:50"
+    "lastUpdate": "11/04/2026, 02:25:28"
   },
   {
     "name": "BMW_M5_V10_S85B50",
@@ -133,7 +135,7 @@
     "raids": {},
     "membershipId": "4611686018485160172",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:36:52"
+    "lastUpdate": "11/04/2026, 02:25:30"
   },
   {
     "name": "suitwy :/",
@@ -141,7 +143,7 @@
     "raids": {},
     "membershipId": "4611686018556709629",
     "membershipType": 1,
-    "lastUpdate": "10/04/2026, 23:36:53"
+    "lastUpdate": "11/04/2026, 02:25:31"
   },
   {
     "name": "johnny ganza",
@@ -149,7 +151,7 @@
     "raids": {},
     "membershipId": "4611686018515664333",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:36:56"
+    "lastUpdate": "11/04/2026, 02:25:33"
   },
   {
     "name": "Redacted1512",
@@ -157,7 +159,7 @@
     "raids": {},
     "membershipId": "4611686018450170758",
     "membershipType": 2,
-    "lastUpdate": "10/04/2026, 23:36:59"
+    "lastUpdate": "11/04/2026, 02:25:36"
   },
   {
     "name": "killanov",
@@ -165,7 +167,7 @@
     "raids": {},
     "membershipId": "4611686018488837833",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:37:02"
+    "lastUpdate": "11/04/2026, 02:25:41"
   },
   {
     "name": "Err0r 404 PT",
@@ -173,7 +175,7 @@
     "raids": {},
     "membershipId": "4611686018433432488",
     "membershipType": 1,
-    "lastUpdate": "10/04/2026, 23:37:09"
+    "lastUpdate": "11/04/2026, 02:25:46"
   },
   {
     "name": "Heartbeats",
@@ -181,7 +183,7 @@
     "raids": {},
     "membershipId": "4611686018491989083",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:37:14"
+    "lastUpdate": "11/04/2026, 02:25:52"
   },
   {
     "name": "CãoMonista",
@@ -189,7 +191,7 @@
     "raids": {},
     "membershipId": "4611686018496636058",
     "membershipType": 1,
-    "lastUpdate": "10/04/2026, 23:37:17"
+    "lastUpdate": "11/04/2026, 02:25:54"
   },
   {
     "name": "XxjowjowxX",
@@ -197,7 +199,7 @@
     "raids": {},
     "membershipId": "4611686018489160451",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:37:19"
+    "lastUpdate": "11/04/2026, 02:25:56"
   },
   {
     "name": "Anonyme PT",
@@ -205,7 +207,7 @@
     "raids": {},
     "membershipId": "4611686018430756006",
     "membershipType": 1,
-    "lastUpdate": "10/04/2026, 23:37:23"
+    "lastUpdate": "11/04/2026, 02:25:59"
   },
   {
     "name": "死の予感",
@@ -213,7 +215,7 @@
     "raids": {},
     "membershipId": "4611686018485968615",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:37:27"
+    "lastUpdate": "11/04/2026, 02:26:02"
   },
   {
     "name": "Sennin",
@@ -221,7 +223,7 @@
     "raids": {},
     "membershipId": "4611686018476765164",
     "membershipType": 3,
-    "lastUpdate": "10/04/2026, 23:37:32"
+    "lastUpdate": "11/04/2026, 02:26:05"
   },
   {
     "name": "sui",
@@ -229,7 +231,7 @@
     "raids": {},
     "membershipId": "4611686018555996703",
     "membershipType": 6,
-    "lastUpdate": "10/04/2026, 23:37:33"
+    "lastUpdate": "11/04/2026, 02:26:06"
   },
   {
     "name": "Super",
@@ -237,6 +239,6 @@
     "raids": {},
     "membershipId": "4611686018451070038",
     "membershipType": 2,
-    "lastUpdate": "10/04/2026, 23:37:38"
+    "lastUpdate": "11/04/2026, 02:26:12"
   }
 ]
