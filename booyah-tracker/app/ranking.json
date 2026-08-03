@@ -1,15 +1,15 @@
 [
   {
     "name": "arthurr",
-    "total": 4,
+    "total": 7,
     "raids": {
+      "Deep Stone Crypt": 5,
       "Root of Nightmares: Standard": 1,
-      "Deep Stone Crypt": 2,
       "King's Fall: Standard": 1
     },
     "membershipId": "4611686018556431665",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:22"
+    "lastUpdate": "03/08/2026, 18:16:50"
   },
   {
     "name": "Rivality",
@@ -19,7 +19,7 @@
     },
     "membershipId": "4611686018472909419",
     "membershipType": 1,
-    "lastUpdate": "03/08/2026, 16:02:54"
+    "lastUpdate": "03/08/2026, 18:17:26"
   },
   {
     "name": "bytes",
@@ -27,7 +27,7 @@
     "raids": {},
     "membershipId": "4611686018468753458",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:13"
+    "lastUpdate": "03/08/2026, 18:16:41"
   },
   {
     "name": "BMW_M5_V10_S85B50",
@@ -35,7 +35,7 @@
     "raids": {},
     "membershipId": "4611686018485160172",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:16"
+    "lastUpdate": "03/08/2026, 18:16:45"
   },
   {
     "name": "pt",
@@ -43,7 +43,7 @@
     "raids": {},
     "membershipId": "4611686018515664333",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:19"
+    "lastUpdate": "03/08/2026, 18:16:48"
   },
   {
     "name": "who’s trapp?",
@@ -51,7 +51,7 @@
     "raids": {},
     "membershipId": "4611686018450170758",
     "membershipType": 2,
-    "lastUpdate": "03/08/2026, 16:02:26"
+    "lastUpdate": "03/08/2026, 18:16:54"
   },
   {
     "name": "thechibbis",
@@ -59,7 +59,7 @@
     "raids": {},
     "membershipId": "4611686018478886116",
     "membershipType": 2,
-    "lastUpdate": "03/08/2026, 16:02:29"
+    "lastUpdate": "03/08/2026, 18:16:57"
   },
   {
     "name": "killanov",
@@ -67,7 +67,7 @@
     "raids": {},
     "membershipId": "4611686018488837833",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:32"
+    "lastUpdate": "03/08/2026, 18:17:00"
   },
   {
     "name": "Heartbeats",
@@ -75,7 +75,7 @@
     "raids": {},
     "membershipId": "4611686018491989083",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:35"
+    "lastUpdate": "03/08/2026, 18:17:04"
   },
   {
     "name": "XxjowjowxX",
@@ -83,7 +83,7 @@
     "raids": {},
     "membershipId": "4611686018489160451",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:38"
+    "lastUpdate": "03/08/2026, 18:17:08"
   },
   {
     "name": "Anonyme PT",
@@ -91,7 +91,7 @@
     "raids": {},
     "membershipId": "4611686018430756006",
     "membershipType": 1,
-    "lastUpdate": "03/08/2026, 16:02:42"
+    "lastUpdate": "03/08/2026, 18:17:13"
   },
   {
     "name": "死の予感",
@@ -99,7 +99,7 @@
     "raids": {},
     "membershipId": "4611686018485968615",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:02:45"
+    "lastUpdate": "03/08/2026, 18:17:16"
   },
   {
     "name": "MariSyl",
@@ -107,7 +107,7 @@
     "raids": {},
     "membershipId": "4611686018462817446",
     "membershipType": 2,
-    "lastUpdate": "03/08/2026, 16:02:47"
+    "lastUpdate": "03/08/2026, 18:17:19"
   },
   {
     "name": "Feeh",
@@ -115,7 +115,7 @@
     "raids": {},
     "membershipId": "4611686018449541080",
     "membershipType": 1,
-    "lastUpdate": "03/08/2026, 16:02:51"
+    "lastUpdate": "03/08/2026, 18:17:23"
   },
   {
     "name": "uremmy",
@@ -123,7 +123,7 @@
     "raids": {},
     "membershipId": "4611686018462927610",
     "membershipType": 2,
-    "lastUpdate": "03/08/2026, 16:02:58"
+    "lastUpdate": "03/08/2026, 18:17:30"
   },
   {
     "name": "Err0r 404 PT",
@@ -131,7 +131,7 @@
     "raids": {},
     "membershipId": "4611686018433432488",
     "membershipType": 1,
-    "lastUpdate": "03/08/2026, 16:03:01"
+    "lastUpdate": "03/08/2026, 18:17:34"
   },
   {
     "name": "yumeii",
@@ -139,7 +139,7 @@
     "raids": {},
     "membershipId": "4611686018494684333",
     "membershipType": 2,
-    "lastUpdate": "03/08/2026, 16:03:04"
+    "lastUpdate": "03/08/2026, 18:17:38"
   },
   {
     "name": "Sennin",
@@ -147,7 +147,7 @@
     "raids": {},
     "membershipId": "4611686018476765164",
     "membershipType": 3,
-    "lastUpdate": "03/08/2026, 16:03:06"
+    "lastUpdate": "03/08/2026, 18:17:41"
   },
   {
     "name": "Super",
@@ -155,6 +155,6 @@
     "raids": {},
     "membershipId": "4611686018451070038",
     "membershipType": 2,
-    "lastUpdate": "03/08/2026, 16:03:10"
+    "lastUpdate": "03/08/2026, 18:17:45"
   }
 ]
