@@ -1,16 +1,16 @@
 [
   {
     "name": "bytes",
-    "total": 9,
+    "total": 10,
     "raids": {
+      "Garden of Salvation": 2,
       "Vow of the Disciple: Standard": 1,
       "Root of Nightmares: Standard": 1,
-      "King's Fall: Standard": 6,
-      "Garden of Salvation": 1
+      "King's Fall: Standard": 6
     },
     "membershipId": "4611686018468753458",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:14:22"
+    "lastUpdate": "22/08/2026, 02:34:59"
   },
   {
     "name": "BMW_M5_V10_S85B50",
@@ -18,7 +18,7 @@
     "raids": {},
     "membershipId": "4611686018485160172",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:14:25"
+    "lastUpdate": "22/08/2026, 02:35:02"
   },
   {
     "name": "pt",
@@ -26,7 +26,7 @@
     "raids": {},
     "membershipId": "4611686018515664333",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:14:28"
+    "lastUpdate": "22/08/2026, 02:35:05"
   },
   {
     "name": "who’s trapp?",
@@ -34,7 +34,7 @@
     "raids": {},
     "membershipId": "4611686018450170758",
     "membershipType": 2,
-    "lastUpdate": "22/08/2026, 01:14:32"
+    "lastUpdate": "22/08/2026, 02:35:08"
   },
   {
     "name": "thechibbis",
@@ -42,7 +42,7 @@
     "raids": {},
     "membershipId": "4611686018478886116",
     "membershipType": 2,
-    "lastUpdate": "22/08/2026, 01:14:35"
+    "lastUpdate": "22/08/2026, 02:35:10"
   },
   {
     "name": "killanov",
@@ -50,7 +50,7 @@
     "raids": {},
     "membershipId": "4611686018488837833",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:14:39"
+    "lastUpdate": "22/08/2026, 02:35:13"
   },
   {
     "name": "Heartbeats",
@@ -58,7 +58,7 @@
     "raids": {},
     "membershipId": "4611686018491989083",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:14:43"
+    "lastUpdate": "22/08/2026, 02:35:16"
   },
   {
     "name": "XxjowjowxX",
@@ -66,7 +66,7 @@
     "raids": {},
     "membershipId": "4611686018489160451",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:14:46"
+    "lastUpdate": "22/08/2026, 02:35:19"
   },
   {
     "name": "Anonyme PT",
@@ -74,7 +74,7 @@
     "raids": {},
     "membershipId": "4611686018430756006",
     "membershipType": 1,
-    "lastUpdate": "22/08/2026, 01:14:50"
+    "lastUpdate": "22/08/2026, 02:35:23"
   },
   {
     "name": "死の予感",
@@ -82,7 +82,7 @@
     "raids": {},
     "membershipId": "4611686018485968615",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:14:53"
+    "lastUpdate": "22/08/2026, 02:35:26"
   },
   {
     "name": "MariSyl",
@@ -90,7 +90,7 @@
     "raids": {},
     "membershipId": "4611686018462817446",
     "membershipType": 2,
-    "lastUpdate": "22/08/2026, 01:14:56"
+    "lastUpdate": "22/08/2026, 02:35:29"
   },
   {
     "name": "Feeh",
@@ -98,7 +98,7 @@
     "raids": {},
     "membershipId": "4611686018449541080",
     "membershipType": 1,
-    "lastUpdate": "22/08/2026, 01:14:59"
+    "lastUpdate": "22/08/2026, 02:35:32"
   },
   {
     "name": "uremmy",
@@ -106,7 +106,7 @@
     "raids": {},
     "membershipId": "4611686018462927610",
     "membershipType": 2,
-    "lastUpdate": "22/08/2026, 01:15:03"
+    "lastUpdate": "22/08/2026, 02:35:35"
   },
   {
     "name": "Err0r 404 PT",
@@ -114,7 +114,7 @@
     "raids": {},
     "membershipId": "4611686018433432488",
     "membershipType": 1,
-    "lastUpdate": "22/08/2026, 01:15:06"
+    "lastUpdate": "22/08/2026, 02:35:38"
   },
   {
     "name": "yumeii",
@@ -122,7 +122,7 @@
     "raids": {},
     "membershipId": "4611686018494684333",
     "membershipType": 2,
-    "lastUpdate": "22/08/2026, 01:15:09"
+    "lastUpdate": "22/08/2026, 02:35:41"
   },
   {
     "name": "Sennin",
@@ -130,7 +130,7 @@
     "raids": {},
     "membershipId": "4611686018476765164",
     "membershipType": 3,
-    "lastUpdate": "22/08/2026, 01:15:12"
+    "lastUpdate": "22/08/2026, 02:35:45"
   },
   {
     "name": "Super",
@@ -138,6 +138,6 @@
     "raids": {},
     "membershipId": "4611686018451070038",
     "membershipType": 2,
-    "lastUpdate": "22/08/2026, 01:15:15"
+    "lastUpdate": "22/08/2026, 02:35:48"
   }
 ]
