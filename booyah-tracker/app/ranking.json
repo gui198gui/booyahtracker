@@ -1,17 +1,17 @@
 [
   {
     "name": "bytes",
-    "total": 11,
+    "total": 13,
     "raids": {
+      "King's Fall: Standard": 7,
+      "Root of Nightmares: Standard": 2,
       "Pantheon: Calus Resplendent: Customize": 1,
       "Garden of Salvation": 2,
-      "Vow of the Disciple: Standard": 1,
-      "Root of Nightmares: Standard": 1,
-      "King's Fall: Standard": 6
+      "Vow of the Disciple: Standard": 1
     },
     "membershipId": "4611686018468753458",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:13"
+    "lastUpdate": "24/08/2026, 16:37:37"
   },
   {
     "name": "BMW_M5_V10_S85B50",
@@ -19,7 +19,7 @@
     "raids": {},
     "membershipId": "4611686018485160172",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:16"
+    "lastUpdate": "24/08/2026, 16:37:40"
   },
   {
     "name": "pt",
@@ -27,7 +27,7 @@
     "raids": {},
     "membershipId": "4611686018515664333",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:19"
+    "lastUpdate": "24/08/2026, 16:37:42"
   },
   {
     "name": "who’s trapp?",
@@ -35,7 +35,7 @@
     "raids": {},
     "membershipId": "4611686018450170758",
     "membershipType": 2,
-    "lastUpdate": "24/08/2026, 15:39:22"
+    "lastUpdate": "24/08/2026, 16:37:45"
   },
   {
     "name": "thechibbis",
@@ -43,7 +43,7 @@
     "raids": {},
     "membershipId": "4611686018478886116",
     "membershipType": 2,
-    "lastUpdate": "24/08/2026, 15:39:25"
+    "lastUpdate": "24/08/2026, 16:37:47"
   },
   {
     "name": "killanov",
@@ -51,7 +51,7 @@
     "raids": {},
     "membershipId": "4611686018488837833",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:27"
+    "lastUpdate": "24/08/2026, 16:37:50"
   },
   {
     "name": "Heartbeats",
@@ -59,7 +59,7 @@
     "raids": {},
     "membershipId": "4611686018491989083",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:31"
+    "lastUpdate": "24/08/2026, 16:37:52"
   },
   {
     "name": "XxjowjowxX",
@@ -67,7 +67,7 @@
     "raids": {},
     "membershipId": "4611686018489160451",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:33"
+    "lastUpdate": "24/08/2026, 16:37:55"
   },
   {
     "name": "Anonyme PT",
@@ -75,7 +75,7 @@
     "raids": {},
     "membershipId": "4611686018430756006",
     "membershipType": 1,
-    "lastUpdate": "24/08/2026, 15:39:37"
+    "lastUpdate": "24/08/2026, 16:37:58"
   },
   {
     "name": "死の予感",
@@ -83,7 +83,7 @@
     "raids": {},
     "membershipId": "4611686018485968615",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:40"
+    "lastUpdate": "24/08/2026, 16:38:01"
   },
   {
     "name": "MariSyl",
@@ -91,7 +91,7 @@
     "raids": {},
     "membershipId": "4611686018462817446",
     "membershipType": 2,
-    "lastUpdate": "24/08/2026, 15:39:43"
+    "lastUpdate": "24/08/2026, 16:38:04"
   },
   {
     "name": "Feeh",
@@ -99,7 +99,7 @@
     "raids": {},
     "membershipId": "4611686018449541080",
     "membershipType": 1,
-    "lastUpdate": "24/08/2026, 15:39:46"
+    "lastUpdate": "24/08/2026, 16:38:07"
   },
   {
     "name": "uremmy",
@@ -107,7 +107,7 @@
     "raids": {},
     "membershipId": "4611686018462927610",
     "membershipType": 2,
-    "lastUpdate": "24/08/2026, 15:39:49"
+    "lastUpdate": "24/08/2026, 16:38:11"
   },
   {
     "name": "Err0r 404 PT",
@@ -115,7 +115,7 @@
     "raids": {},
     "membershipId": "4611686018433432488",
     "membershipType": 1,
-    "lastUpdate": "24/08/2026, 15:39:52"
+    "lastUpdate": "24/08/2026, 16:38:13"
   },
   {
     "name": "yumeii",
@@ -123,7 +123,7 @@
     "raids": {},
     "membershipId": "4611686018494684333",
     "membershipType": 2,
-    "lastUpdate": "24/08/2026, 15:39:55"
+    "lastUpdate": "24/08/2026, 16:38:16"
   },
   {
     "name": "Sennin",
@@ -131,7 +131,7 @@
     "raids": {},
     "membershipId": "4611686018476765164",
     "membershipType": 3,
-    "lastUpdate": "24/08/2026, 15:39:58"
+    "lastUpdate": "24/08/2026, 16:38:18"
   },
   {
     "name": "Super",
@@ -139,6 +139,6 @@
     "raids": {},
     "membershipId": "4611686018451070038",
     "membershipType": 2,
-    "lastUpdate": "24/08/2026, 15:40:01"
+    "lastUpdate": "24/08/2026, 16:38:21"
   }
 ]
